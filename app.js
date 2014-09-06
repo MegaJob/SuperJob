@@ -37,6 +37,7 @@ app.use(user);
 app.use(messages);
 
 app.get('/', page(Entry.count, 5), entries.list);
+app.get('/:page?', page(Entry.count), entries.list);
 app.route('/post')
     .get(entries.form)
     .post(validate.required('entry[title]'),

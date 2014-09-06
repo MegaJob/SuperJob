@@ -1,12 +1,24 @@
+require('newrelic');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var register = require('./routes/register');
+var login = require('./routes/login');
+var messages = require('./lib/messages');
+var entries = require('./routes/entries');
+
+var user = require('./lib/middleware/user');
+var validate = require('./lib/middleware/validate');
+var page = require('./lib/middleware/page');
+var Entry = require('./lib/entry');
 
 var app = express();
 
@@ -18,11 +30,26 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(cookieParser('topsecret'));
+app.use(session({secret: 'topsecret'}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(user);
+app.use(messages);
 
-app.use('/', routes);
+app.get('/', page(Entry.count, 5), entries.list);
+app.route('/post')
+    .get(entries.form)
+    .post(validate.required('entry[title]'),
+          validate.lengthAbove('entry[title]', 4),
+          entries.submit);
 app.use('/users', users);
+app.route('/register')
+    .get(register.form)
+    .post(register.submit);
+app.route('/login')
+    .get(login.form)
+    .post(login.submit);
+app.get('/logout', login.logout);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,10 +1,5 @@
 var Entry = require('../lib/entry');
 
-exports.lev = function(req, res) {
-	console.log(req.lev);
-	res.render('lev');
-}
-
 exports.list = function(req, res, next) {
 	var page = req.page;
 	Entry.getRange(page.from, page.to, function(err, entries) {

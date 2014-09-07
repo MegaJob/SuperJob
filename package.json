@@ -15,7 +15,8 @@
     "ejs": "~0.8.5",
     "express-session": "*",
     "bcrypt-nodejs": "*",
-    "redis": "0.7.2"
+    "redis": "0.7.2",
+    "basic-auth-connect": "*"
   },
   "env": {
     "PYTHON": "/usr/bin/python"

@@ -14,6 +14,7 @@ var register = require('./routes/register');
 var login = require('./routes/login');
 var messages = require('./lib/messages');
 var entries = require('./routes/entries');
+var api = require('./routes/api');
 
 var user = require('./lib/middleware/user');
 var validate = require('./lib/middleware/validate');
@@ -38,6 +39,8 @@ app.use(messages);
 
 app.get('/', page(Entry.count, 5), entries.list);
 //app.get('/:page?', page(Entry.count, 5), entries.list);
+app.use('/api', api.auth);
+app.use(user);
 app.route('/post')
     .get(entries.form)
     .post(validate.required('entry[title]'),

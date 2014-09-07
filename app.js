@@ -19,6 +19,7 @@ var user = require('./lib/middleware/user');
 var validate = require('./lib/middleware/validate');
 var page = require('./lib/middleware/page');
 var Entry = require('./lib/entry');
+var lev = require('./lib/middleware/lev');
 
 var app = express();
 
@@ -37,7 +38,8 @@ app.use(user);
 app.use(messages);
 
 app.get('/', page(Entry.count, 5), entries.list);
-app.get('/:page?', page(Entry.count), entries.list);
+app.get('/lev/:id/:page', lev(), entries.lev)
+//app.get('/:page?', page(Entry.count, 5), entries.list);
 app.route('/post')
     .get(entries.form)
     .post(validate.required('entry[title]'),

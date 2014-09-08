@@ -38,10 +38,11 @@ app.use(user);
 app.use(messages);
 
 app.get('/', page(Entry.count, 5), entries.list);
-//app.get('/:page?', page(Entry.count, 5), entries.list);
+app.get('/:page?', page(Entry.count, 5), entries.list);
 app.use('/api', api.auth);
 app.get('/api/user/:id', api.user);
 app.post('/api/entry', entries.submit);
+app.get('/api/entries/:page?', page(Entry.count), api.entries);
 app.use(user);
 app.route('/post')
     .get(entries.form)
@@ -56,6 +57,8 @@ app.route('/login')
     .get(login.form)
     .post(login.submit);
 app.get('/logout', login.logout);
+
+app.use(routes.notfound);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

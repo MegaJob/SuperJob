@@ -176,3 +176,15 @@
 {"name":"newrelic","hostname":"levsatellite","pid":9386,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-09-08T18:45:15.837Z","v":0}
 {"name":"newrelic","hostname":"levsatellite","pid":9386,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/759796/applications/3742296","time":"2014-09-08T18:45:17.122Z","v":0}
 {"name":"newrelic","hostname":"levsatellite","pid":9386,"component":"collector_api","level":30,"msg":"Connected to collector-119.newrelic.com:443 with agent run ID 925639003.","time":"2014-09-08T18:45:17.123Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":9890,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-09-08T18:54:43.673Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":9890,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/759796/applications/3742296","time":"2014-09-08T18:54:44.537Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":9890,"component":"collector_api","level":30,"msg":"Connected to collector-119.newrelic.com:443 with agent run ID 925649979.","time":"2014-09-08T18:54:44.537Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":10201,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-09-08T19:04:53.318Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":10201,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/759796/applications/3742296","time":"2014-09-08T19:04:54.097Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":10201,"component":"collector_api","level":30,"msg":"Connected to collector-119.newrelic.com:443 with agent run ID 925665163.","time":"2014-09-08T19:04:54.098Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":12636,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-09-08T22:26:27.977Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":12636,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/759796/applications/3742296","time":"2014-09-08T22:26:29.011Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":12636,"component":"collector_api","level":30,"msg":"Connected to collector-119.newrelic.com:443 with agent run ID 925921315.","time":"2014-09-08T22:26:29.012Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":13815,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-09-08T22:43:52.614Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":13815,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/759796/applications/3742296","time":"2014-09-08T22:43:53.344Z","v":0}
+{"name":"newrelic","hostname":"levsatellite","pid":13815,"component":"collector_api","level":30,"msg":"Connected to collector-119.newrelic.com:443 with agent run ID 925940018.","time":"2014-09-08T22:43:53.344Z","v":0}

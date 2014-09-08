@@ -40,6 +40,8 @@ app.use(messages);
 app.get('/', page(Entry.count, 5), entries.list);
 //app.get('/:page?', page(Entry.count, 5), entries.list);
 app.use('/api', api.auth);
+app.get('/api/user/:id', api.user);
+app.post('/api/entry', entries.submit);
 app.use(user);
 app.route('/post')
     .get(entries.form)

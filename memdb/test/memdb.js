@@ -7,16 +7,18 @@ describe('memdb', function() {
 	});
 
 	describe('.save(doc)', function() {
-		it('should save the document', function() {
+		it('should save the document', function(done) {
 			var pet = { name: 'Tobi' };
-			memdb.save(pet);
-			var ret = memdb.first({ name: 'Tobi' });
-			assert(ret == pet);
+			memdb.save(pet, function() {
+				var ret = memdb.first({ name: 'Tobi' });
+				assert(ret == pet);
+				done();
+			});
 		});
 	});
 
 	describe('.first(obj)', function(){
-		it('should return the first matching doc', function() {
+		it('should return the first matching doc', function(done) {
 			var tobi = { name: 'Tobi' };
 			var loki = { name: 'Loki' };
 
@@ -28,11 +30,14 @@ describe('memdb', function() {
 
 			var ret = memdb.first({ name: 'Loki' });
 			assert(ret == loki);
+
+			done();
 		});
 	});
 
-	it('should return null when no doc matches', function() {
+	it('should return null when no doc matches', function(done) {
 		var ret = memdb.first({ name: 'Manny' });
 		assert(ret == null);
+		done();
 	});
 });

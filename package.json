@@ -18,7 +18,8 @@
     "redis": "0.7.2",
     "basic-auth-connect": "*",
     "nodeunit": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "nimble": "*"
   },
   "env": {
     "PYTHON": "/usr/bin/python"

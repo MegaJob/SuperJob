@@ -38,6 +38,7 @@ userSchema.methods.printSummary = function() {
 
 var User = mongoose.model('User', userSchema);
 
+
 _.series([
 	function (callback) {
 		db.once('open', function() {
@@ -78,7 +79,27 @@ _.series([
 			if (err) return console.error(err);
 			console.log('user after saving summary');
 			user.printSummary();
+			console.log();
 			callback();
 		});
 	},
+	function (callback) {
+		console.log("let's find all the users");
+		User.find(function(err, users){
+			if (err) return console.error(err);
+			console.log("what users I've found:");
+			console.log("amount - " + users.length);
+			for(key in users) {
+				console.log("User #" + key);
+				users[key].printSummary();
+			}
+		});
+	},
+	/* function (callback) {
+		console.log("Do you want to clean all the Users? (Y/n) press Enter");
+		stdin.on('data', function(chunk) {
+			console.log()
+			callback();
+		});
+	} */
 ]);

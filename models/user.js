@@ -1,4 +1,5 @@
 var _ = require('nimble');
+var stdin = process.stdin;
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -37,7 +38,7 @@ userSchema.methods.printSummary = function() {
 };
 
 var User = mongoose.model('User', userSchema);
-
+var userResponse = 'n';
 
 _.series([
 	function (callback) {
@@ -93,13 +94,49 @@ _.series([
 				console.log("User #" + key);
 				users[key].printSummary();
 			}
-		});
-	},
-	/* function (callback) {
-		console.log("Do you want to clean all the Users? (Y/n) press Enter");
-		stdin.on('data', function(chunk) {
-			console.log()
+			console.log();
 			callback();
 		});
-	} */
+	},
+	function (callback) {
+		console.log("Do you want to clean all the Users? (Y/n) press Enter");
+		var getUserResponse = function (chunk) {
+			stdin.removeListener('data', getUserResponse);
+			userResponse = chunk;
+			console.log("You entered " + userResponse + "");
+			callback();
+		};
+		stdin.on('data', getUserResponse);
+	},
+	function (callback) {
+		if (userResponse == 'Y\n') {
+			User.find().remove(function(){
+				callback();				
+			});
+		} else {
+			callback();
+		}
+	},
+	function (callback) {
+		if (userResponse == 'Y\n') {
+			console.log("let's find all the users after DELETION (should be nothing)");
+			User.find(function(err, users){
+				if (err) return console.error(err);
+				console.log("what users I've found:");
+				console.log("amount - " + users.length);
+				for(key in users) {
+					console.log("User #" + key);
+					users[key].printSummary();
+				}
+				console.log();
+				callback();
+			});
+		} else {
+			callback();
+		}
+	},
+	function (callback) {
+		console.log('Bye.')
+		process.exit();
+	}
 ]);

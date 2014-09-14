@@ -62,12 +62,12 @@ _.series([
 				email: "creator@this.universe",
 				picurl: "http://this.universe/creator.png",
 				resume: "The Creator",
-				birthday: "0000-00-00"
+				birthday: new Date("0000-00-00")
 			},
 			statistics:
 			{
-				created: "0000-00-00",
-				lastlogin: "2014-09-09"
+				created: new Date("0000-00-00"),
+				lastlogin: new Date("2014-09-09")
 			}
 		});
 		console.log("user1 summary:");

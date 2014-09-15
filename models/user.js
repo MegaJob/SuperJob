@@ -38,7 +38,10 @@ userSchema.methods.printSummary = function() {
 };
 
 var User = mongoose.model('User', userSchema);
-var userResponse = 'n';
+
+module.exports = User;
+
+/*var userResponse = 'n';
 
 _.series([
 	function (callback) {
@@ -139,4 +142,4 @@ _.series([
 		console.log('Bye.')
 		process.exit();
 	}
-]);
+]);*/

@@ -1,4 +1,4 @@
-var user = require('../user');
+var User = require('../user');
 var assert = require('assert');
 
 describe('user', function() {
@@ -6,38 +6,37 @@ describe('user', function() {
 		// TODO: add some preparation for User model
 	});
 
-	describe('.save(doc)', function() {
-		it('should save the document', function(done) {
-			var pet = { name: 'Tobi' };
-			memdb.save(pet, function() {
-				var ret = memdb.first({ name: 'Tobi' });
-				assert(ret == pet);
+	describe('.new(user)', function() {
+		it('create new user', function(done) {
+			var newUser = new User({ 
+				id: "1",
+				name: "creator",
+				pass: "$2a$12$GRSzwq1wDEOcJhBTcU89HeO.MAQ02tYgO06hyeQcVLaa020lSFb7G",
+				salt: "$2a$12$GRSzwq1wDEOcJhBTcU89He",
+				status: "1",
+				personal:
+				{
+					firstname: "Son",
+					lastname: "Holy Ghost",
+					patronymic: "Father",
+					phone: "+00000000000",
+					email: "creator@this.universe",
+					picurl: "http://this.universe/creator.png",
+					resume: "The Creator",
+					birthday: new Date("0000-00-00")
+				},
+				statistics:
+				{
+					created: new Date("0000-00-00"),
+					lastlogin: new Date("2014-09-09")
+				}
+			});
+			newUser.save(function(err, user) {
+				if (err) throw err;
+				assert(newUser == user);
 				done();
 			});
 		});
 	});
 
-	describe('.first(obj)', function(){
-		it('should return the first matching doc', function(done) {
-			var tobi = { name: 'Tobi' };
-			var loki = { name: 'Loki' };
-
-			memdb.save(tobi);
-			memdb.save(loki);
-
-			var ret = memdb.first({ name: 'Tobi' });
-			assert(ret == tobi);
-
-			var ret = memdb.first({ name: 'Loki' });
-			assert(ret == loki);
-
-			done();
-		});
-	});
-
-	it('should return null when no doc matches', function(done) {
-		var ret = memdb.first({ name: 'Manny' });
-		assert(ret == null);
-		done();
-	});
 });

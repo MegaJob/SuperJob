@@ -2,8 +2,10 @@ var User = require('../user');
 var assert = require('assert');
 
 describe('user', function() {
-	beforeEach(function() {
-		// TODO: add some preparation for User model
+	beforeEach(function(done) {
+		User.find().remove(function() {
+			done();
+		});
 	});
 
 	describe('.new(user)', function() {
@@ -33,8 +35,11 @@ describe('user', function() {
 			});
 			newUser.save(function(err, user) {
 				if (err) throw err;
-				assert(newUser == user);
-				done();
+				assert.deepEqual(newUser, user);
+				User.authenticate("creator", "123", function(res) {
+					assert(true);
+					done();
+				});
 			});
 		});
 	});

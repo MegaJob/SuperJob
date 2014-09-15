@@ -1,6 +1,7 @@
 var _ = require('nimble');
 var stdin = process.stdin;
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost/mytest');
@@ -32,6 +33,13 @@ var userSchema = new Schema({
   }
 });
 
+userSchema.statics.authenticate = function(name, pass, fn) {
+	User.find({ name: name }, function(err, users) {
+		if (users.length == 0) throw "error: no user with the name";
+		if (users.length > 1) throw "error: multiple users with the name";
+		throw "everything is all right";
+	});
+};
 userSchema.methods.printSummary = function() {
 	console.log('Name: ' + this.name);
 	console.log('Full name: ' + this.personal.firstname + ' ' + this.personal.patronymic + ' ' + this.personal.lastname);

@@ -3,7 +3,7 @@
 /**
  * Removes server error when user updates input
  */
-angular.module('shoutboxApp')
+angular.module('elnosErpApp')
   .directive('mongooseError', function () {
     return {
       restrict: 'A',

@@ -26,7 +26,7 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'shoutbox-secret'
+    session: 'elnos-erp-secret'
   },
 
   // List of user roles

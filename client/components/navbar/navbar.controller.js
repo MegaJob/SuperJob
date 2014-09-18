@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('shoutboxApp')
+angular.module('elnosErpApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',

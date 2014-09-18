@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('shoutboxApp')
+angular.module('elnosErpApp')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.user = {};
     $scope.errors = {};

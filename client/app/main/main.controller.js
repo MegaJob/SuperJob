@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('shoutboxApp')
+angular.module('elnosErpApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
 

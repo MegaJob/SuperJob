@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('shoutboxApp')
+angular.module('elnosErpApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {

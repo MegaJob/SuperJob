@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('shoutboxApp')
+angular.module('elnosErpApp')
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal

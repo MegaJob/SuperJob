@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/shoutbox-dev'
+    uri: 'mongodb://localhost/elnoserp-dev'
   },
 
   seedDB: true

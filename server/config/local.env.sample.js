@@ -7,7 +7,7 @@
 
 module.exports = {
   DOMAIN:           'http://localhost:9000',
-  SESSION_SECRET:   'shoutbox-secret',
+  SESSION_SECRET:   'elnoserp-secret',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''

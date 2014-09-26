@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Part = require('../api/part/part.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -46,4 +47,22 @@ User.find({}).remove(function() {
       console.log('finished populating users');
     }
   );
+});
+
+Part.find({}).remove(function() {
+  Part.create({
+    class: 'Крепёж',
+    type: 'Винты',
+    name: 'Винтик',
+    amount: '2 шт',
+    limit: '10 шт',
+  }, {
+    class: 'Пластик',
+    type: 'Сита',
+    name: 'Резина, которую нужно тянуть',
+    amount: '30 см',
+    limit: '100 м',
+  }, function() {
+    console.log('finished populating parts');
+  } )
 });

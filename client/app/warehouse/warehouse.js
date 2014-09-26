@@ -6,6 +6,6 @@ angular.module('elnosErpApp')
       .state('warehouse', {
         url: '/warehouse',
         templateUrl: 'app/warehouse/warehouse.html',
-//        controller: 'MainCtrl'
+        controller: 'WarehouseCtrl'
       });
   });

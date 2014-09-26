@@ -1,0 +1,23 @@
+/* Override default Bootstrap style */
+ .popover-content {
+     color: red;
+}
+
+/* Override default Bootstarp style */
+.form-inline .form-control {
+    width: 100%;
+}
+
+.dataTables_filter {
+    display:none;
+}
+
+td.group {
+    background-color: #def !important;
+    border-bottom: 1px solid #888 !important;
+}
+
+td.group:hover {
+    background-color: #cdf !important;
+    border-bottom: 1px solid #888 !important;
+}

@@ -1,0 +1,285 @@
+<!-- Bootstrap -->
+<link href="app/warehouse/css/magic-bootstrap.css" rel="stylesheet">
+<!-- DataTables -->
+<link href="app/warehouse/css/jquery.dataTables.css" rel="stylesheet">
+<!-- DataTables Bootstrap -->
+<link href="app/warehouse/css/dataTables.bootstrap.css" rel="stylesheet"> 
+<!-- Custom -->
+<link href="app/warehouse/css/custom.css" rel="stylesheet">
+  
+<!-- Custom CSS -->
+<style>
+body {
+    padding-top: 70px;
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+</style>
+
+<!-- Navigation -->
+<nav class="navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand" style="height:50px; padding:0;" src="img/logo_bgnd.png"/>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="warehouse.html">Склад</a>
+                </li>
+                <li>
+                    <a href="component.html">Компоненты</a>
+                </li>
+                <li>
+                    <a href="index.html">Приборы</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+  
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-left col-xl-12">
+            <h1>Склад</h1>
+            
+            <!-- Кнопки -->
+            <div class="row text-center">
+                <div class="col-md-12 btn-group">
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Регистрация</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Подготовка</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">В ремонт</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Регистрация</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Подготовка</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">В ремонт</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Регистрация</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Подготовка</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">В ремонт</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Регистрация</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">Подготовка</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-1">В ремонт</button>
+                </div>
+            </div>
+            
+            <!-- Speacer -->
+            <div class="row">&nbsp;</div>
+            
+            <!-- Состав блока -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="warehousTable" class="table table-hover table-bordered table-striped table-condensed compact">
+                            <thead>
+                                <tr>
+                                    <th>Класс детали</th>
+                                    <th>Тип детали</th>
+                                    <th>Название детали</th>
+                                    <th>Кол-во на складе</th>
+                                    <th>Критическое кол-во</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Крепёж</td>
+                                    <td>Винты</td>
+                                    <td>Винтик</td>
+                                    <td>2 шт</td>
+                                    <td>10 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Пластик</td>
+                                    <td>Сита</td>
+                                    <td>Резина, которую нужно тянуть</td>
+                                    <td>30 см</td>
+                                    <td>100 м</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Неведомая хрень</td>
+                                    <td>200 cм<sup>2</sup></td>
+                                    <td>1000 м<sup>2</sup></td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Пластик</td>
+                                    <td>Сита</td>
+                                    <td>Шпунтик</td>
+                                    <td>6 шт</td>
+                                    <td>50 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Гайка</td>
+                                    <td>4 шт</td>
+                                    <td>60 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Крепёж</td>
+                                    <td>Сита</td>
+                                    <td>Супер технологичная железяка</td>
+                                    <td>5 шт</td>
+                                    <td>500 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Пластик</td>
+                                    <td>Сита</td>
+                                    <td>Ещё какая-то деталь со склада</td>
+                                    <td>0</td>
+                                    <td>1000</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Винтик</td>
+                                    <td>2 шт</td>
+                                    <td>10 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Крепёж</td>
+                                    <td>Сита</td>
+                                    <td>Резина, которую нужно тянуть</td>
+                                    <td>30 см</td>
+                                    <td>100 м</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Неведомая хрень</td>
+                                    <td>200 cм<sup>2</sup></td>
+                                    <td>1000 м<sup>2</sup></td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Шпунтик</td>
+                                    <td>6 шт</td>
+                                    <td>50 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Крепёж</td>
+                                    <td>Сита</td>
+                                    <td>Гайка</td>
+                                    <td>4 шт</td>
+                                    <td>60 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Супер технологичная железяка</td>
+                                    <td>5 шт</td>
+                                    <td>500 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Ещё какая-то деталь со склада</td>
+                                    <td>0</td>
+                                    <td>1000</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Пластик</td>
+                                    <td>Сита</td>
+                                    <td>Винтик</td>
+                                    <td>2 шт</td>
+                                    <td>10 шт</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Резина</td>
+                                    <td>Сита</td>
+                                    <td>Резина, которую нужно тянуть</td>
+                                    <td>30 см</td>
+                                    <td>100 м</td>
+                                    <td><button><span class="glyphicon glyphicon-gift"></span></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Speacer -->
+        <div class="row">&nbsp;</div>
+            
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="app/warehouse/js/jquery-1.11.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed  -->
+<script src="app/warehouse/js/bootstrap.js"></script>
+<!-- DataTables -->
+<script src="app/warehouse/js/jquery.dataTables.js"></script>
+<script src="app/warehouse/js/dataTables.bootstrap.js"></script>
+<script src="app/warehouse/js/jquery.dataTables.columnFilter.js"></script>
+  <script src="app/warehouse/js/jquery.dataTables.rowGrouping.js"></script>
+<!-- Spoiler -->
+<script src="app/warehouse/js/spoiller.js"></script>
+<!-- Custom -->
+<script src="app/warehouse/js/custom.js"></script>
+  
+<script>
+    $(document).ready(function() {
+        $('#warehousTable')
+            .dataTable({
+                "info":     true,
+                stateSave: true,
+                "bSortCellsTop": true,
+                 /* for grouping */
+                "bLengthChange": false,
+                "bPaginate": false
+                /*language: {
+                    url: '/lang/dataTables.ru.json'
+                }*/
+            })
+            .columnFilter({
+                sPlaceHolder: "head:after",
+                bUseColVis: true,
+                aoColumns: [{ type: "select" },
+                            { type: "select" },
+                            { type: "select" },
+                            null,
+                            null
+                           ]
+            })
+            .rowGrouping({
+                iGroupingColumnIndex: 0,
+                bExpandableGrouping: true
+            })
+    });
+</script>

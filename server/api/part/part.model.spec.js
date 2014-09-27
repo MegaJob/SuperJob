@@ -73,11 +73,11 @@ describe('Part Model', function() {
   it('should fail when saving a part with already occupied identifier', function(done) {
     var anotherPart = new Part({
       identifier: part.identifier,
-      class: part.class + '-1',
-      type: part.type + '-1',
-      name: part.name + '-1',
-      amount: part.amount + '-1',
-      limit: part.limit + '-1'
+      class:      part.class  + '-1',
+      type:       part.type   + '-1',
+      name:       part.name   + '-1',
+      amount:     part.amount + '-1',
+      limit:      part.limit  + '-1'
     });
     part.save(function(err, _part) {
       should.not.exist(err);
@@ -100,11 +100,11 @@ describe('Part Model', function() {
   it('should fail when saving a part with already occupied name', function(done) {
     var anotherPart = new Part({
       identifier: part.identifier + '-1',
-      class: part.class + '-1',
-      type: part.type + '-1',
-      name: part.name,
-      amount: part.amount + '-1',
-      limit: part.limit + '-1'
+      class:      part.class      + '-1',
+      type:       part.type       + '-1',
+      name:       part.name,
+      amount:     part.amount     + '-1',
+      limit:      part.limit      + '-1'
     });
     part.save(function(err, _part) {
       should.not.exist(err);

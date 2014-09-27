@@ -51,12 +51,14 @@ User.find({}).remove(function() {
 
 Part.find({}).remove(function() {
   Part.create({
+    identifier: 'RT_OVF_2',
     class: 'Крепёж',
     type: 'Винты',
     name: 'Винтик',
     amount: '2 шт',
     limit: '10 шт',
   }, {
+    identifier: 'RT5_3',
     class: 'Пластик',
     type: 'Сита',
     name: 'Резина, которую нужно тянуть',

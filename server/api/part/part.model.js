@@ -4,12 +4,12 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var PartSchema = new Schema({
-  identifier: { type: String, uppercase: true },
-  class: String,
-  type: String,
-  name: String,
+  identifier: { type: String, required: 'Identifier is required', uppercase: true },
+  class:  String,
+  type:   String,
+  name: { type: String, required: 'Name is required' },
   amount: String,
-  limit: String
+  limit:  String
 });
 
 /* identifier */
@@ -17,7 +17,7 @@ var PartSchema = new Schema({
 PartSchema
   .path('identifier')
   .validate(function(identifier) {
-    return identifier.length;
+    return identifier && identifier.length;
   }, 'Identifier cannot be blank');
 // Validate identifier is not taken
 PartSchema
@@ -39,9 +39,8 @@ PartSchema
 PartSchema
   .path('name')
   .validate(function(name) {
-    return name.length;
+    return name && name.length;
   }, 'Name cannot be blank');
-
 // Validate name is not taken
 PartSchema
   .path('name')

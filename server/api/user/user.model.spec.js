@@ -4,12 +4,13 @@ var should = require('should');
 var app = require('../../app');
 var User = require('./user.model');
 
-var user = new User({
+var userData = {
   provider: 'local',
   name: 'Fake User',
   email: 'test@test.com',
   password: 'password'
-});
+};
+var user;
 
 describe('User Model', function() {
   before(function(done) {
@@ -17,6 +18,10 @@ describe('User Model', function() {
     User.remove().exec().then(function() {
       done();
     });
+  });
+
+  beforeEach(function() {
+    user = new User(userData);
   });
 
   afterEach(function(done) {
@@ -33,8 +38,9 @@ describe('User Model', function() {
   });
 
   it('should fail when saving a duplicate user', function(done) {
-    user.save(function() {
-      var userDup = new User(user);
+    user.save(function(err) {
+      should.not.exist(err);
+      var userDup = new User(userData);
       userDup.save(function(err) {
         should.exist(err);
         done();
@@ -47,6 +53,22 @@ describe('User Model', function() {
     user.save(function(err) {
       should.exist(err);
       done();
+    });
+  });
+
+  it('should fail when saving a user with already occupied email', function(done) {
+    var anotherUser = new User({
+      provider: 'local',
+      name: 'Another ' + user.name,
+      email: user.email,
+      password: 'differentpassword'
+    });
+    user.save(function(err, _user) {
+      should.not.exist(err);
+      anotherUser.save(function(err) {
+        should.exist(err);
+        done();
+      });
     });
   });
 

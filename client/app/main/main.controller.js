@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('elnosErpApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $location) {
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {

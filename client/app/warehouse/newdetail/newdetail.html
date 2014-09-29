@@ -32,7 +32,7 @@
 		</div>
 		<div class="form-group">
 			<label for="DetailPicture">Picture</label>
-			<input type="file" id="DetailPicture">
+			<input type="file" id="DetailPicture" ng-file-select="onFileSelect($files)" ><!--accept="image/*"-->
 			<p class="help-block">This picture is a face of the detail.</p>
 		</div>
 		<div class="checkbox">

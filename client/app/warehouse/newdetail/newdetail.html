@@ -35,6 +35,13 @@
 			<input type="file" id="DetailPicture" ng-file-select="onFileSelect($files)" ><!--accept="image/*"-->
 			<p class="help-block">This picture is a face of the detail.</p>
 		</div>
+
+		<div class="progress" ng-show="uploading.isactive">
+			<div class="progress-bar" role="progressbar" aria-valuenow="{{ uploading.percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ uploading.percentage }}%;">
+				{{ uploading.percentage }}%
+			</div>
+		</div>
+
 		<div class="checkbox">
 			<label>
 			<input type="checkbox" name="archived" ng-model="detail.archived"> Archived

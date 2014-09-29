@@ -13,7 +13,29 @@ var UserSchema = new Schema({
   },
   hashedPassword: String,
   provider: String,
-  salt: String
+  salt: String,
+  personal: {
+    firstname: String,
+    patronymic: String,
+    lastname: String,
+    photo: String,
+    resume: String,
+    phone: String,
+    birthdate: Date
+  },
+  settings: {
+    defaultpage: {
+      type: String,
+      default: '/',
+    }
+  },
+  statistics: {
+    registered: {
+      type: Date,
+      default: Date.now(),
+    },
+    lastlogin: Date
+  }
 });
 
 /**

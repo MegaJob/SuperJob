@@ -1,11 +1,11 @@
 <div class="container">
   <div class="block-grid-lg-4 block-grid-md-3 block-grid-sm-2">
-    <div class="block-grid-item" ng-repeat="user in users" ng-show="user.personal" style="text-align:center">
+    <div class="block-grid-item" ng-repeat="user in users" style="text-align:center">
       <img src="{{ user.personal.photo }}" class="img-responsive img-circle" style="width:50%; height:50%; margin-left:auto; margin-right:auto">
       <h4>{{ user.personal.firstname }}</h4>
       <h4>{{ user.personal.patronymic }}</h4>
       <h4>{{ user.personal.lastname }}</h4>
-      <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+      <p><a class="btn btn-primary" href="/people/view/{{ user._id }}" role="button">View details &raquo;</a></p>
     </div>
   </div>
 </div>

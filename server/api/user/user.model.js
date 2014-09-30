@@ -59,6 +59,7 @@ UserSchema
     return {
       'name':       this.name,
       'role':       this.role,
+      'email':      this.email,
       'personal':   this.personal,
       'statistics': this.statistics
     };

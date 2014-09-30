@@ -7,13 +7,13 @@ angular.module('elnosErpApp')
         url: '/people',
         templateUrl: 'app/people/people.html',
         controller: 'PeopleCtrl'
+      })
+      .state('people/view', {
+        url: '/people/view/:userid',
+        templateUrl: 'app/people/peopleView.html',
+        controller: 'PeopleViewCtrl'
       });
-/*      .state('viewperson', {
-        url: '/people/view',
-        templateUrl: 'app/people/people.html',
-        controller: 'PeopleCtrl'
-      });
-      .state('people', {
+/*      .state('people', {
         url: '/people',
         templateUrl: 'app/people/people.html',
         controller: 'PeopleCtrl'

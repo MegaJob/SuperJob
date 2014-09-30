@@ -48,6 +48,25 @@ exports.show = function (req, res, next) {
 };
 
 /**
+ * Update an existing user
+ */
+exports.update = function (req, res) {
+  if(req.body._id) { delete req.body._id; }
+
+  var userId = req.params.id;
+
+  User.findById(userId, function (err, user) {
+    if (err) return res.send(500, err);
+    if (!user) return res.send(401);
+    var updated = _.merge(user, req.body);
+    updated.save(function (err) {
+      if (err) { return res.send(500, err); }
+      return res.json(200, user);
+    });
+  });
+};
+
+/**
  * Deletes a user
  * restriction: 'admin'
  */

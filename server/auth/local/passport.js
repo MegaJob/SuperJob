@@ -18,6 +18,9 @@ exports.setup = function (User, config) {
         if (!user.authenticate(password)) {
           return done(null, false, { message: 'This password is not correct.' });
         }
+
+        user.statistics.lastlogin = Date.now();
+        user.save();
         return done(null, user);
       });
     }

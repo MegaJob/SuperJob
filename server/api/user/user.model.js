@@ -57,8 +57,10 @@ UserSchema
   .virtual('profile')
   .get(function() {
     return {
-      'name': this.name,
-      'role': this.role
+      'name':       this.name,
+      'role':       this.role,
+      'personal':   this.personal,
+      'statistics': this.statistics
     };
   });
 

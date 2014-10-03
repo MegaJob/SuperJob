@@ -3,19 +3,9 @@
 angular.module('elnosErpApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('people', {
-        url: '/people',
-        templateUrl: 'app/people/people.html',
-        controller: 'PeopleCtrl'
-      })
-      .state('people/view', {
-        url: '/people/view/:userid',
-        templateUrl: 'app/people/peopleView.html',
-        controller: 'PeopleViewCtrl'
+      .state('user/list', {
+        url: '/user/list',
+        templateUrl: 'app/user/user.list.html',
+        controller: 'UserListCtrl'
       });
-/*      .state('people', {
-        url: '/people',
-        templateUrl: 'app/people/people.html',
-        controller: 'PeopleCtrl'
-      }); */
   });

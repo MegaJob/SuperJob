@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('elnosErpApp')
-  .controller('PeopleCtrl', function ($scope, $http, $location) {
+  .controller('UserListCtrl', function ($scope, $http, $location) {
     $scope.users = [];
 
     $http.get('/api/users').success(function(users) {

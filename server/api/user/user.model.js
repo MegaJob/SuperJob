@@ -81,6 +81,13 @@ UserSchema
 
 // Validate empty email
 UserSchema
+  .path('name')
+  .validate(function(name) {
+    return name.length;
+  }, 'Name cannot be blank');
+
+// Validate empty email
+UserSchema
   .path('email')
   .validate(function(email) {
     return email.length;
@@ -92,6 +99,21 @@ UserSchema
   .validate(function(hashedPassword) {
     return hashedPassword.length;
   }, 'Password cannot be blank');
+
+// Validate email is not taken
+UserSchema
+  .path('name')
+  .validate(function(value, respond) {
+    var self = this;
+    this.constructor.findOne({name: value}, function(err, user) {
+      if(err) throw err;
+      if(user) {
+        if(self.id === user.id) return respond(true);
+        return respond(false);
+      }
+      respond(true);
+    });
+}, 'The specified name is already in use.');
 
 // Validate email is not taken
 UserSchema

@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var _ = require('lodash');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -32,8 +33,7 @@ exports.create = function (req, res, next) {
     // OLD_IMPLEMENTATION:
     // var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
     // res.json({ token: token });
-    console.log(user);
-    res.json(200, { userid: user.id });
+    res.json(200, user.profile);
   });
 };
 
@@ -41,9 +41,9 @@ exports.create = function (req, res, next) {
  * Get a single user
  */
 exports.show = function (req, res, next) {
-  var userId = req.params.id;
+  var userName = req.params.name;
 
-  User.findById(userId, function (err, user) {
+  User.findOne({ name: userName }, function (err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
     res.json(user.profile);
@@ -56,15 +56,15 @@ exports.show = function (req, res, next) {
 exports.update = function (req, res) {
   if(req.body._id) { delete req.body._id; }
 
-  var userId = req.params.id;
+  var userName = req.params.name;
 
-  User.findById(userId, function (err, user) {
+  User.findOne({ name: userName }, function (err, user) {
     if (err) return res.send(500, err);
     if (!user) return res.send(401);
     var updated = _.merge(user, req.body);
-    updated.save(function (err) {
+    updated.save(function (err, user) {
       if (err) { return res.send(500, err); }
-      return res.json(200, user);
+      return res.json(200, user.profile);
     });
   });
 };
@@ -74,7 +74,7 @@ exports.update = function (req, res) {
  * restriction: 'admin'
  */
 exports.destroy = function(req, res) {
-  User.findByIdAndRemove(req.params.id, function(err, user) {
+  User.findOneAndRemove({ name: req.params.name }, function(err, user) {
     if(err) return res.send(500, err);
     return res.send(204);
   });
@@ -83,12 +83,12 @@ exports.destroy = function(req, res) {
 /**
  * Change a users password
  */
-exports.changePassword = function(req, res, next) {
-  var userId = req.user._id;
+/* exports.changePassword = function(req, res, next) {
+  var userName = req.user.name;
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
 
-  User.findById(userId, function (err, user) {
+  User.find({ name: userName}, function (err, user) {
     if(user.authenticate(oldPass)) {
       user.password = newPass;
       user.save(function(err) {
@@ -99,7 +99,7 @@ exports.changePassword = function(req, res, next) {
       res.send(403);
     }
   });
-};
+}; */
 
 /**
  * Get my info

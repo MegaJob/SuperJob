@@ -16,8 +16,8 @@ angular.module('elnosErpApp')
       	name:     $scope.user.name,
       	email:    $scope.user.email,
       	password: $scope.user.password,
-      }).success(function(data) {
-        $location.path('/user/view/' + data.userid);
+      }).success(function(user) {
+        $location.path('/user/view/' + user.name);
       }).error(function(data) {
       	if (data.errors)
           $scope.errors = data.errors;

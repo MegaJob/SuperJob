@@ -61,8 +61,6 @@ exports.update = function (req, res) {
 
   var userName = req.params.name;
 
-  console.log(req.body);
-
   User.findOne({ name: userName }, function (err, user) {
     if (err) return res.send(500, err);
     if (!user) return res.send(401);

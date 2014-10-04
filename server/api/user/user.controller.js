@@ -4,6 +4,9 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var fs = require('fs');
+var path = require('path');
+var flow = require('nimble');
 var _ = require('lodash');
 
 var validationError = function(res, err) {
@@ -58,14 +61,52 @@ exports.update = function (req, res) {
 
   var userName = req.params.name;
 
+  console.log(req.body);
+
   User.findOne({ name: userName }, function (err, user) {
     if (err) return res.send(500, err);
     if (!user) return res.send(401);
     var updated = _.merge(user, req.body);
-    updated.save(function (err, user) {
-      if (err) { return res.send(500, err); }
-      return res.json(200, user.profile);
-    });
+
+    flow.series([
+      function(callback) {
+        // Save picture
+        if (req.body.picture && req.body.picture.file && req.body.picture.file.path) {
+          var picPath         = process.cwd() + '/' + req.body.picture.file.path;
+          var userPicsPath    = process.cwd() + '/client/assets/images/users/' + user.name;
+          var userPicFilename = 'pic' + path.extname(picPath);
+          var userPicsURL     = 'assets/images/users/' + user.name + '/' + userPicFilename;
+
+          flow.series([
+            function(done) {
+              fs.mkdir(userPicsPath, function(err) {
+                done();
+              });
+            },
+            function(done) {
+              fs.rename(picPath,
+                userPicsPath + '/' + userPicFilename,
+                function(err) {
+                  done();
+                });
+            },
+            function(done) {
+              updated.personal.photo = userPicsURL;
+              callback();
+              done();
+            }
+          ]);
+        } else {
+          callback();
+        }
+      },
+      function() {
+        updated.save(function (err, user) {
+          if (err) { return res.send(500, err); }
+          return res.json(200, user.profile);
+        });
+      }
+    ]);
   });
 };
 

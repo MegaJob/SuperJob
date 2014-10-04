@@ -1,0 +1,78 @@
+<div class="container">
+	<form role="form" name="userForm" ng-submit="userSubmit(userForm)">
+		<div class="form-group">
+			<label for="UsernameIdentifier">Username</label>
+			<input type="text" name="username" id="UserName" class="form-control" ng-model="user.name" placeholder="Enter username">
+			<div class="has-error">
+				<p class="help-block">{{ errors.name.message }}</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="UserEmail">E-mail</label>
+			<input type="email" name="email" id="UserEmail" class="form-control" ng-model="user.email" placeholder="Enter email">
+			<div class="has-error">
+				<p class="help-block">{{ errors.email.message }}</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="UserPassword">Password</label>
+			<input type="password" name="password" id="UserPassword" class="form-control" ng-model="user.password" placeholder="Enter password">
+			<div class="has-error">
+				<p class="help-block">{{ errors.password.message }}</p>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="UserFirstName">First Name</label>
+					<input type="text" name="firstname" id="UserFirstName" class="form-control" ng-model="user.personal.firstname" placeholder="Enter first name">
+				</div>
+
+				<div class="form-group">
+					<label for="UserPatronymic">Patronymic</label>
+					<input type="text" name="patronymic" id="UserPatronymic" class="form-control" ng-model="user.personal.patronymic" placeholder="Enter patronymic">
+				</div>
+
+				<div class="form-group">
+					<label for="UserLastName">Last Name</label>
+					<input type="text" name="lastname" id="UserLastName" class="form-control" ng-model="user.personal.lastname" placeholder="Enter last name">
+				</div>
+
+				<div class="form-group">
+					<label for="UserBirthdate">Birth date</label>
+					<input type="date" name="birthdate" id="UserBirthdate" class="form-control" ng-model="user.personal.birthdate" placeholder="Enter birth date">
+				</div>
+
+				<div class="form-group">
+					<label for="UserResume">Resume</label>
+					<input type="text" name="resume" id="UserResume" class="form-control" ng-model="user.personal.resume" placeholder="Enter resume">
+				</div>
+
+				<div class="form-group">
+					<label for="UserPhone">Phone</label>
+					<input type="tel" name="phone" id="UserPhone" class="form-control" ng-model="user.personal.phone" placeholder="Enter phone">
+				</div>
+
+				<div class="form-group">
+					<label for="UserPicture">Picture</label>
+					<img class="img-responsive" src="{{ user.personal.photo }}">
+					<input type="file" id="UserPicture" ng-file-select="onFileSelect($files)" ><!--accept="image/*"-->
+					<p class="help-block">This picture is your face.</p>
+				</div>
+
+				<div class="progress" ng-show="uploading.isactive">
+					<div class="progress-bar" role="progressbar" aria-valuenow="{{ uploading.percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ uploading.percentage }}%;">
+						{{ uploading.percentage }}%
+					</div>
+				</div>
+			</div>
+		</div>		
+
+        <div class="form-group has-error">
+          <p class="help-block">{{ errors.other.message }}</p>
+        </div>
+
+		<button type="submit" class="btn btn-default">Save</button>
+	</form>
+</div>

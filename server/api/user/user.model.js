@@ -56,7 +56,6 @@ UserSchema
 UserSchema
   .virtual('profile')
   .get(function() {
-    console.log('---------------------');
     return {
       'name':       this.name,
       'role':       this.role,

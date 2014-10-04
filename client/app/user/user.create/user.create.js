@@ -5,7 +5,7 @@ angular.module('elnosErpApp')
     $stateProvider
       .state('user/create', {
         url: '/user/create',
-        templateUrl: 'app/user/user.create/user.create.html',
+        templateUrl: 'app/user/user.form.html',
         controller: 'UserCreateCtrl'
       });
   });

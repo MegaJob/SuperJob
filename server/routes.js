@@ -5,6 +5,7 @@
 'use strict';
 
 var errors = require('./components/errors');
+var multipart = require('connect-multiparty');
 
 module.exports = function(app) {
 
@@ -15,6 +16,12 @@ module.exports = function(app) {
 
   app.use('/auth', require('./auth'));
   
+  app.post('/upload', multipart({
+      uploadDir: "./tmp"
+    }), function (req, res) {
+      return res.json(200, req.files);
+    });
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);

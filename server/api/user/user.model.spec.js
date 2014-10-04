@@ -37,11 +37,45 @@ describe('User Model', function() {
     });
   });
 
+  it('should not show hashed password and salt when retrieving user profile', function(done) {
+    user.save(function(_, user) {
+      user.profile.should.have.property('name');
+      user.profile.should.have.property('email');
+      user.profile.should.not.have.property('salt');
+      user.profile.should.not.have.property('hashedPassword');
+      done();
+    });
+  });
+
   it('should fail when saving a duplicate user', function(done) {
     user.save(function(err) {
       should.not.exist(err);
       var userDup = new User(userData);
       userDup.save(function(err) {
+        should.exist(err);
+        done();
+      });
+    });
+  });
+
+  it('should fail when saving without a name', function(done) {
+    user.name = '';
+    user.save(function(err) {
+      should.exist(err);
+      done();
+    });
+  });
+
+  it('should fail when saving a user with already occupied name', function(done) {
+    var anotherUser = new User({
+      provider: 'local',
+      name: user.name,
+      email: 'another' + user.email,
+      password: 'differentpassword'
+    });
+    user.save(function(err, _user) {
+      should.not.exist(err);
+      anotherUser.save(function(err) {
         should.exist(err);
         done();
       });

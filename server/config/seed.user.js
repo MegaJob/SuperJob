@@ -15,7 +15,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'vas',
-    email: 'vasilievvk@yandex.ru',
+    email: 'vasilievvk__1@yandex.ru',
     password: 'vaspass',
     personal: {
       firstname: 'Валерий',
@@ -28,7 +28,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'vor',
-    email: 'voregor162@yandex.ru',
+    email: 'voregor162__1@yandex.ru',
     password: 'vorpass',
     personal: {
       firstname: 'Егор',
@@ -41,7 +41,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'gol',
-    email: 'avgolovin@bk.ru',
+    email: 'avgolovin__1@bk.ru',
     password: 'vorpass',
     personal: {
       firstname: 'Анатолий',
@@ -54,7 +54,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'gro',
-    email: 'gro@site.com',
+    email: 'gro__1@site.com',
     password: 'gropass',
     personal: {
       firstname: 'Евгений',
@@ -66,7 +66,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'desh',
-    email: 'TheMarquis@mail.ru',
+    email: 'TheMarquis__1@mail.ru',
     password: 'deshpass',
     personal: {
       firstname: 'Сергей',
@@ -79,7 +79,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'zai',
-    email: 'mephista1-11@yandex.ru',
+    email: 'mephista1-11__1@yandex.ru',
     password: 'zaipass',
     personal: {
       firstname: 'Сергей',
@@ -92,7 +92,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'iva',
-    email: 'ivanovnew@yandex.ru',
+    email: 'ivanovnew__1@yandex.ru',
     password: 'ivapass',
     personal: {
       firstname: 'Игорь',
@@ -103,7 +103,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'kas',
-    email: 'kaskov.s@gmail.com',
+    email: 'kaskov.s__1@gmail.com',
     password: 'kaspass',
     personal: {
       firstname: 'Сергей',
@@ -116,7 +116,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'mak',
-    email: 'malvina12@inbox.ru',
+    email: 'malvina12__1@inbox.ru',
     password: 'makpass',
     personal: {
       firstname: 'Нина',
@@ -129,7 +129,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'mal',
-    email: 'malkin_evgeniy@mail.ru',
+    email: 'malkin_evgeniy__1@mail.ru',
     password: 'malpass',
     personal: {
       firstname: 'Евгений',
@@ -142,7 +142,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'mat',
-    email: 'maksim-starcity@mail.ru',
+    email: 'maksim-starcity__1@mail.ru',
     password: 'matpass',
     personal: {
       firstname: 'Максим',
@@ -155,7 +155,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'mim',
-    email: 'MiRus398@yandex.ru',
+    email: 'MiRus398__1@yandex.ru',
     password: 'mimpass',
     personal: {
       firstname: 'Руслан',
@@ -168,7 +168,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'mir',
-    email: 'Chrno91@mail.ru',
+    email: 'Chrno91__1@mail.ru',
     password: 'mirpass',
     personal: {
       firstname: 'Александр',
@@ -181,7 +181,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'pot',
-    email: 'Potur92@mail.ru',
+    email: 'Potur92__1@mail.ru',
     password: 'potpass',
     personal: {
       firstname: 'Артемий',
@@ -194,7 +194,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'riz',
-    email: 'tlb18@mail.ru',
+    email: 'tlb18__1@mail.ru',
     password: 'rizpass',
     personal: {
       firstname: 'Дмитрий',
@@ -207,7 +207,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'zar',
-    email: 'neyania@yandex.ru',
+    email: 'neyania__1@yandex.ru',
     password: 'zarpass',
     personal: {
       firstname: 'Наталия',
@@ -220,7 +220,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'stel',
-    email: 'evzhenya92@gmail.com',
+    email: 'evzhenya92__1@gmail.com',
     password: 'stelpass',
     personal: {
       firstname: 'Женя',
@@ -233,7 +233,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'tay',
-    email: 'lev.tajdakov@gmail.com',
+    email: 'lev.tajdakov__1@gmail.com',
     password: 'taypass',
     personal: {
       firstname: 'Лев',
@@ -246,7 +246,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'zig',
-    email: '__stdc__@ascii.org.ru',
+    email: '__stdc____1@ascii.org.ru',
     password: 'zigpass',
     personal: {
       firstname: 'Александр',
@@ -259,7 +259,7 @@ User.find({}).remove(function() {
   }, {
     provider: 'local',
     name: 'shal',
-    email: 'shaltaeva@yandex.ru',
+    email: 'shaltaeva__1@yandex.ru',
     password: 'shalpass',
     personal: {
       firstname: 'Юлия',

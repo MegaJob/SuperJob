@@ -6,7 +6,7 @@ var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var fs = require('fs');
 var path = require('path');
-var flow = require('nimble');
+var async = require('async');
 var _ = require('lodash');
 
 var validationError = function(res, err) {
@@ -66,7 +66,7 @@ exports.update = function (req, res) {
     if (!user) return res.send(401);
     var updated = _.merge(user, req.body);
 
-    flow.series([
+    async.series([
       function(callback) {
         // Save picture
         if (req.body.picture && req.body.picture.file && req.body.picture.file.path) {
@@ -75,7 +75,7 @@ exports.update = function (req, res) {
           var userPicFilename = 'pic' + path.extname(picPath);
           var userPicsURL     = 'assets/images/users/' + user.name + '/' + userPicFilename;
 
-          flow.series([
+          async.series([
             function(done) {
               fs.mkdir(userPicsPath, function(err) {
                 done();

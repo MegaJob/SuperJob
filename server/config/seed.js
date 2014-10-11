@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var Part = require('../api/part/part.model');
+require('./seed.acl'); 
 require('./seed.user');
 
 Thing.find({}).remove(function() {

@@ -9,15 +9,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
 var mongoose = require('mongoose');
-var acl = require('acl');
 var config = require('./config/environment');
 
 // Connect to database
-mongoose.connect(config.mongo.uri, config.mongo.options);
-acl = new acl(new acl.mongodbBackend(mongoose.connection.db, "acl_"));
-
-// Populate DB with sample data
-if(config.seedDB) { require('./config/seed'); }
+mongoose.connect(config.mongo.uri, config.mongo.options, function() {
+	// Populate DB with sample data
+	if(config.seedDB) { require('./config/seed'); }
+});
 
 // Setup server
 var app = express();
